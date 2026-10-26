@@ -54,7 +54,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup.outputs.version-matrix) }}
     steps:
       - name: Set Up Python ${{ matrix.version }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
           python-version: ${{ matrix.version }}
 
@@ -83,7 +83,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup-eol.outputs.version-matrix) }}
     steps:
       - name: Set Up Python ${{ matrix.version }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
           python-version: ${{ matrix.version }}
 
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Python ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
           python-version: ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
 
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Python ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
           python-version: ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
 
@@ -169,7 +169,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-max-versions-strip-patch-setup.outputs.version-matrix) }}
     steps:
       - name: Set Up Python ${{ matrix.version }}
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97  # v7.0.0
+        uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0  # v7.1.0
         with:
           python-version: ${{ matrix.version }}
 
