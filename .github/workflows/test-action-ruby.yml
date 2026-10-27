@@ -54,7 +54,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup.outputs.version-matrix) }}
     steps:
       - name: Set Up Ruby ${{ matrix.version }}
-        uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a  # v1.329.0
+        uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec  # v1.334.0
         with:
           ruby-version: ${{ matrix.version }}
 
@@ -83,7 +83,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup-eol.outputs.version-matrix) }}
     steps:
       - name: Set Up Ruby ${{ matrix.version }}
-        uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a  # v1.329.0
+        uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec  # v1.334.0
         with:
           ruby-version: ${{ matrix.version }}
 
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Ruby ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
-        uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a  # v1.329.0
+        uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec  # v1.334.0
         with:
           ruby-version: ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
 
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Ruby ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
-        uses: ruby/setup-ruby@651ff0d62c5c79bed6d53ec518387aae20e72c1a  # v1.329.0
+        uses: ruby/setup-ruby@26e5b7d197ebf60545ee9667bcbace0be11ccaec  # v1.334.0
         with:
           ruby-version: ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
 
