@@ -29,7 +29,7 @@ permissions:
 
 jobs:
   test-output-method-setup:
-    name: Min Version 5.34
+    name: Min Version 5.40
     runs-on: ubuntu-latest
     outputs:
       version-matrix: ${{ steps.get-versions.outputs.latest-versions }}
@@ -42,10 +42,10 @@ jobs:
         id: get-versions
         with:
           language: perl
-          min-version: "5.34"
+          min-version: "5.40"
 
   test-output-method-load:
-    name: Min Version 5.34
+    name: Min Version 5.40
     needs:
       - test-output-method-setup
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup.outputs.version-matrix) }}
     steps:
       - name: Set Up Perl ${{ matrix.version }}
-        uses: shogo82148/actions-setup-perl@3b59bd33efdae98406a9bc4b75a4aa041e11993a  # v1.44.4
+        uses: shogo82148/actions-setup-perl@eebc5c886de14ebbfcd2493d49a12007d2c30477  # v1.44.5
         with:
           perl-version: ${{ matrix.version }}
 
@@ -83,7 +83,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup-eol.outputs.version-matrix) }}
     steps:
       - name: Set Up Perl ${{ matrix.version }}
-        uses: shogo82148/actions-setup-perl@3b59bd33efdae98406a9bc4b75a4aa041e11993a  # v1.44.4
+        uses: shogo82148/actions-setup-perl@eebc5c886de14ebbfcd2493d49a12007d2c30477  # v1.44.5
         with:
           perl-version: ${{ matrix.version }}
 
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Perl ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
-        uses: shogo82148/actions-setup-perl@3b59bd33efdae98406a9bc4b75a4aa041e11993a  # v1.44.4
+        uses: shogo82148/actions-setup-perl@eebc5c886de14ebbfcd2493d49a12007d2c30477  # v1.44.5
         with:
           perl-version: ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
 
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Perl ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
-        uses: shogo82148/actions-setup-perl@3b59bd33efdae98406a9bc4b75a4aa041e11993a  # v1.44.4
+        uses: shogo82148/actions-setup-perl@eebc5c886de14ebbfcd2493d49a12007d2c30477  # v1.44.5
         with:
           perl-version: ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
 

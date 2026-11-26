@@ -29,7 +29,7 @@ permissions:
 
 jobs:
   test-output-method-setup:
-    name: Min Version 1.25
+    name: Min Version 1.26
     runs-on: ubuntu-latest
     outputs:
       version-matrix: ${{ steps.get-versions.outputs.latest-versions }}
@@ -42,10 +42,10 @@ jobs:
         id: get-versions
         with:
           language: go
-          min-version: "1.25"
+          min-version: "1.26"
 
   test-output-method-load:
-    name: Min Version 1.25
+    name: Min Version 1.26
     needs:
       - test-output-method-setup
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup.outputs.version-matrix) }}
     steps:
       - name: Set Up Go ${{ matrix.version }}
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5  # v7.1.0
         with:
           go-version: ${{ matrix.version }}
 
@@ -83,7 +83,7 @@ jobs:
         version: ${{ fromJson(needs.test-output-method-setup-eol.outputs.version-matrix) }}
     steps:
       - name: Set Up Go ${{ matrix.version }}
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5  # v7.1.0
         with:
           go-version: ${{ matrix.version }}
 
@@ -110,7 +110,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Go ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5  # v7.1.0
         with:
           go-version: ${{ needs.test-output-method-setup-highest-only.outputs.highest-version }}
 
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Set Up Go ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
-        uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e  # v7.0.0
+        uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5  # v7.1.0
         with:
           go-version: ${{ needs.test-output-method-setup-highest-only-strip-patch.outputs.highest-version }}
 

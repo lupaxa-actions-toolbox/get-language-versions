@@ -14,6 +14,11 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    # The releases list for this action returns 504 at per_page=100.
+    # Dependabot retries that call until the 55 minute job limit, which
+    # drops every other Actions update in this group. Bump this pin by hand.
+    ignore:
+      - dependency-name: "shogo82148/actions-setup-perl"
     open-pull-requests-limit: 10
     commit-message:
       prefix: "chore:"

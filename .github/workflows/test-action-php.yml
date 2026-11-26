@@ -29,7 +29,7 @@ permissions:
 
 jobs:
   test-output-method-setup:
-    name: Min Version 7.3
+    name: Min Version 8.2
     runs-on: ubuntu-latest
     outputs:
       version-matrix: ${{ steps.get-versions.outputs.latest-versions }}
@@ -42,10 +42,10 @@ jobs:
         id: get-versions
         with:
           language: php
-          min-version: "7.3"
+          min-version: "8.2"
 
   test-output-method-load:
-    name: Min Version 7.3
+    name: Min Version 8.2
     needs:
       - test-output-method-setup
     runs-on: ubuntu-latest
