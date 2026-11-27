@@ -156,10 +156,7 @@ def is_version(value: str) -> bool:
 def extract_versions(language: str, payload: list[object] | dict[str, object]) -> list[str]:
     """Pull version strings out of a language-specific payload."""
     if language == "php":
-        candidates = [
-            f"{item['major']}.{item['minor']}.{item['release']}"
-            for item in version_records(payload)
-        ]
+        candidates = [f"{item['major']}.{item['minor']}.{item['release']}" for item in version_records(payload)]
     elif language == "ruby":
         if not isinstance(payload, dict):
             message = "Expected a Ruby version object"
@@ -174,12 +171,7 @@ def extract_versions(language: str, payload: list[object] | dict[str, object]) -
     return [version for version in candidates if is_version(version)]
 
 
-def remember_highest(
-    chosen: dict[Version, str],
-    version: str,
-    minimum: Version,
-    maximum: Version,
-) -> None:
+def remember_highest(chosen: dict[Version, str], version: str, minimum: Version, maximum: Version) -> None:
     """Keep the highest version string for each major.minor inside the range."""
     major_minor = parse_version(".".join(version.split(".")[:2]))
     if not minimum <= major_minor <= maximum:
@@ -189,14 +181,7 @@ def remember_highest(
         chosen[major_minor] = version
 
 
-def select_versions(
-    versions: list[str],
-    minimum: Version,
-    maximum: Version,
-    *,
-    include_prereleases: bool,
-    remove_patch_version: bool,
-) -> list[str]:
+def select_versions(versions: list[str], minimum: Version, maximum: Version, *, include_prereleases: bool, remove_patch_version: bool) -> list[str]:
     """Filter, collapse, and sort versions for the action output."""
     chosen: dict[Version, str] = {}
     for version in versions:
